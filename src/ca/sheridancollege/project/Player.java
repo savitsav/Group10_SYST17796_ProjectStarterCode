@@ -1,49 +1,48 @@
-/**
- * SYST 17796 Project Winter 2020 Base code.
- * Students can modify and extend to implement their game.
- * Add your name as a modifier and the date!
- */
 package ca.sheridancollege.project;
+/*
+*This class is giving single card to each player
+*it checks whether the player has enough cards to play
+*@author Savita Savita
+*/
+public class Player {
+private ShowCard playCard, decisionCard;
+private String names;
 
-/**
- * A class that models each Player in the game. Players have an identifier, which should be unique.
- *
- * @author dancye
- * @modified Paul Bonenfant Jan 2020
- */
-public abstract class Player {
-
-    private String name; //the unique name for this player
-
-    /**
-     * A constructor that allows you to set the player's unique ID
-     *
-     * @param name the unique ID to assign to this player.
-     */
-    public Player(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the player name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Ensure that the playerID is unique
-     *
-     * @param name the player name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * The method to be overridden when you subclass the Player class with your specific type of Player and filled in
-     * with logic to play your game.
-     */
-    public abstract void play();
-
+public Player(String name)
+{
+names = name;
+playCard = new ShowCard();
+decisionCard = new ShowCard();
+}
+public Card playCard()
+{
+if(playCard.getSize() == 0)
+{
+    useWonCard();
+}
+if (playCard.getSize() > 0)
+{
+return playCard.nextCard();
+}
+return null;
+}
+public String getName() {
+return names;
+}
+public void hasCard(Card c) {
+decisionCard.addCard(c);
+}
+public void hasCards(ShowCard p) {
+decisionCard.addCards(p);
+}
+public void useWonCard()
+{
+playCard.clear(); // reset front and end to 0
+playCard.addCards(decisionCard);
+decisionCard.clear(); // reset front and end to 0
+}
+public int NumberOFCards()
+{
+return playCard.getSize() + decisionCard.getSize();
+}
 }
