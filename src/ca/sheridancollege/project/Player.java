@@ -2,7 +2,7 @@ package ca.sheridancollege.project;
 /*
 *This class is giving single card to each player
 *it checks whether the player has enough cards to play
-*@author Savita Savita
+*@modifier Savita Savita
 */
 public class Player {
 private ShowCard playCard, decisionCard;

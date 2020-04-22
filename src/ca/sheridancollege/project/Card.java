@@ -5,12 +5,12 @@ import java.util.Objects;
 *A Card object is defined by its ranks and its suits.We represent the ranks using the integers from 1 to 13.
 *suits are represented as a String object,
 *We code the suits with the String values HEART,DIAMOND,SPADE,CLUBS .
-*@author Savita Savita
+*@modifier Savita Savita
 
 */
 public class Card implements Comparable<Object>
 {
-    //Fields make final By Priyanka
+    
 private  int ranks;
 private  int suits;
 private Object value;
